@@ -11,8 +11,20 @@ export default function Home() {
   }
 
   const addtodo = (e: any) => {
-    setList([...list, value])
+    if(!value){
+      return console.log('error')
+    }
+    setList([...list, value]);
     setValue('');
+  }
+
+  const deleteOn = (e:any) =>{
+    if(e !== null){
+      setValue('');
+      setList([]);
+    }else{
+      console.log('something went wrong')
+    }
   }
 
   console.log(value);
@@ -34,7 +46,7 @@ export default function Home() {
           <ul className=" list-none p-2">
             {list.map((item) => {
               return (<li className="flex p-3 pl-5 m-3 mb-5 text-xl border-solid justify-between border-white rounded-xl  mx-7">{item}
-                <button className="bg-blue-600 border-0 text-white rounded-md h-7 text-base hover:bg-red-600">Delete</button>
+                <button className="bg-blue-600 border-0 text-white rounded-md h-7 text-base hover:bg-red-600" onClick={deleteOn}>Delete</button>
               </li>
               )
             })}

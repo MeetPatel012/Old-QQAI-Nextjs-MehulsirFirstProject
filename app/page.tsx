@@ -10,6 +10,7 @@ export default function Home() {
     setValue(e.target.value);
   }
 
+  //add the list
   const addtodo = (e: any) => {
     if(!value){
       return console.log('error')
@@ -18,13 +19,20 @@ export default function Home() {
     setValue('');
   }
 
+  //delete the list
   const deleteOn = (e:any) =>{
-    if(e !== null){
-      setValue('');
-      setList([]);
-    }else{
-      console.log('something went wrong')
-    }
+    // if(e !== null){
+    //   setValue('');
+    //   setList([]);
+    // }else{
+    //   console.log('something went wrong')
+    // }
+
+    let deleteone = [...list];
+    deleteone.splice(e,1);
+    setList([...deleteone])
+    
+
   }
 
   console.log(value);

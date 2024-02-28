@@ -21,18 +21,16 @@ export default function Home() {
 
   //delete the list
   const deleteOn = (e:any) =>{
-    // if(e !== null){
-    //   setValue('');
-    //   setList([]);
-    // }else{
-    //   console.log('something went wrong')
-    // }
-
     let deleteone = [...list];
     deleteone.splice(e,1);
     setList([...deleteone])
-    
+  }
 
+  //delete all the element
+  const deleteall = (e:any) =>{
+    let deleteone = [...list];
+    deleteone.splice(e);
+    setList([...deleteone])
   }
 
   console.log(value);
@@ -48,6 +46,7 @@ export default function Home() {
         <div className="mt-16 gird p-1 grid-rows-2">
           <input className="w-9/12 h-10 border-0 rounded-full text-black text text-2xl p-1 pl-4 pr-4" type="text" value={value} onChange={handleChange} placeholder="Plese type something here..." />
           <button className="mt-1 p-1 rounded-full w-32 h-12 text-2xl ml-3 border-0 hover:text-white hover:bg-blue-600 hover:border-0 sm:mt-5" onClick={addtodo}>Add</button>
+          <button className="mt-1 p-1 text-nowrap rounded-full w-40 h-12 text-xl ml-3 border-0 hover:text-white hover:bg-red-600 hover:border-0 sm:mt-5" onClick={deleteall}>Delete All</button>
         </div>
 
         <div className="m-5 text-left mt-8">
